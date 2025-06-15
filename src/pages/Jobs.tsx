@@ -15,6 +15,8 @@ import { updateJob } from "../api/updateJob";
 import { deleteJob } from "../api/deleteJob";
 import Notiflix from "notiflix";
 import { Job } from "../types";
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 
 function Jobs() {
   const isDarkMode = useStore((state) => state.isDarkMode);
@@ -97,7 +99,7 @@ function Jobs() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/job/addjob`);
+        const res = await fetch(`${BASE_URL}/job/addjob`);
         const data = await res.json();
         setJobs(data);
         setFilteredJob(data);
