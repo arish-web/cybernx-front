@@ -1,12 +1,4 @@
-// const BASE_URL = 'import.meta.env.VITE_API_URL';
-// VITE_API_URL="https://cybernx-node.onrender.com/api"
-
-// const BASE_URL = https://cybernx-node.onrender.com/api;
-
 const BASE_URL = import.meta.env.VITE_API_URL;
-
-
-
 
 
 export const registerUser = async (
