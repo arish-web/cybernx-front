@@ -11,11 +11,11 @@ import {
 } from "lucide-react";
 import { useStore } from "../store";
 import { addJob } from "../api/addJob";
+import { getAllJobs } from "../api/addJob"
 import { updateJob } from "../api/updateJob";
 import { deleteJob } from "../api/deleteJob";
 import Notiflix from "notiflix";
 import { Job } from "../types";
-const BASE_URL = import.meta.env.VITE_API_URL;
 
 
 function Jobs() {
@@ -24,10 +24,8 @@ function Jobs() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const currentUser = useStore((state) => state.currentUser);
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [filteredJob, setFilteredJob] = useState([]);
   const [editingJob, setEditingJob] = useState<Job | null>(null);
   const [showForm, setShowForm] = useState(false);
-  console.log("filteredJob", filteredJob);
   const formRef = useRef<HTMLFormElement | null>(null);
 
   console.log("");
@@ -96,15 +94,13 @@ function Jobs() {
     }
   };
 
-  useEffect(() => {
+    useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/job/getjob`);
-        const data = await res.json();
-        setJobs(data);
-        setFilteredJob(data);
-      } catch (err) {
-        console.error("Failed to fetch jobs:", err);
+        const allJobs = await getAllJobs();
+        setJobs(allJobs);
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
       }
     };
 

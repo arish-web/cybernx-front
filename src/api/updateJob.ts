@@ -1,4 +1,8 @@
+
+
 // UPDATE JOB
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 export const updateJob = async (
   jobId: string,
   updatedData: {
@@ -14,7 +18,7 @@ export const updateJob = async (
   }
 ) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/job/updatejob/${jobId}`, {
+    const response = await fetch(`${BASE_URL}/job/updatejob/${jobId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedData),

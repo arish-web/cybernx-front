@@ -50,5 +50,16 @@ export const getJobById = async (id: string) => {
   return data;
 };
 
+export const getAllJobs = async () => {
+  const res = await fetch(`${BASE_URL}/job/getjob`);
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch all jobs');
+  }
+
+  const data = await res.json();
+  return data;
+};
+
 
 
