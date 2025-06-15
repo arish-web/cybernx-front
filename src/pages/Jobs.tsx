@@ -99,7 +99,7 @@ function Jobs() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/job/addjob`);
+        const res = await fetch(`${BASE_URL}/job/getjob`);
         const data = await res.json();
         setJobs(data);
         setFilteredJob(data);
