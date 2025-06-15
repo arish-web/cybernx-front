@@ -62,8 +62,8 @@ const handleSubmit = async (e: React.FormEvent) => {
     }
 
     // Also save to localStorage (for persistence on refresh)
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('currentUser', JSON.stringify(data.user));
+    sessionStorage.setItem('token', data.token);
+    sessionStorage.setItem('currentUser', JSON.stringify(data.user));
 
     Notiflix.Notify.success('Login successful!');
     navigate(`/${data.user.role}/dashboard`);
