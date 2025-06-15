@@ -20,6 +20,7 @@ import { Job } from "../types";
 
 function Jobs() {
   const isDarkMode = useStore((state) => state.isDarkMode);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const currentUser = useStore((state) => state.currentUser);
@@ -28,7 +29,6 @@ function Jobs() {
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
 
-  console.log("");
 
   const initialJobState: Job = {
     _id: "",
@@ -101,12 +101,15 @@ function Jobs() {
         setJobs(allJobs);
       } catch (error) {
         console.error('Error fetching jobs:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchJobs();
   }, []);
 
+  if (loading) return <div>Loading...</div>;
   return (
     <div className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
       <div className="mb-8">

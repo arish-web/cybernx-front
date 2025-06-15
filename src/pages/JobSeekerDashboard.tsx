@@ -20,7 +20,6 @@ function JobSeekerDashboard() {
   const [userApplications, setUserApplications] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  console.log("userApplications", userApplications);
 
   const sortedApps = [...userApplications].sort(
     (a, b) =>

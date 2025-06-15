@@ -81,7 +81,6 @@ const categoryData = useMemo(() => {
 
     fetchApplications();
   }, [currentUser]);
-  console.log("currentUser?.company123",   applications)
 
 
 

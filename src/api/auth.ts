@@ -13,7 +13,6 @@ export const loginUser = async (email: string, password: string) => {
       const contentType = response.headers.get('content-type');
       if (contentType?.includes('application/json')) {
         const errorData = await response.json();
-        console.log("ass",    errorData.msg)
         throw new Error(errorData.msg);
       } else {
         const errorText = await response.text();

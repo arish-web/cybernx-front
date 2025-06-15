@@ -16,38 +16,9 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   const user = dummyUsers.find(u => u.email === email);
-    
-  //   if (user) {
-  //     setCurrentUser(user);
-  //     navigate(`/${user.role}/dashboard`);
-  //   } else {
-  //     setError('Invalid credentials');
-  //   }
-  // };
+ 
 
   //-----updated-----//
-// const handleSubmit = async (e: React.FormEvent) => {
-//   e.preventDefault();
-//   setError('');
-
-//   try {
-//     const data = await loginUser(email, password);
-
-//     setCurrentUser(data.user);
-//     localStorage.setItem('token', data.token);
-
-//     Notiflix.Notify.success('Login successful!');
-//     navigate(`/${data.user.role}/dashboard`);
-//   } catch (err: any) {
-//     const message = err.message;
-//     console.log("ass1",  message)
-//     setError(message);
-//     Notiflix.Notify.failure(message);
-//   }
-// };
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setError('');
@@ -75,7 +46,6 @@ const handleSubmit = async (e: React.FormEvent) => {
     Notiflix.Notify.failure(message);
   }
 };
-
   //-----updated-----//
   
   return (
