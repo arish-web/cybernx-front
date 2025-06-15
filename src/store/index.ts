@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { User } from '../types';
 
+
 interface Store {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
